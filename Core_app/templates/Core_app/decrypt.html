@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ngome File Decryption</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'encryption_app/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Ngome File Decryption</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload and Decrypt</button>
+        </form>
+    </div>
+</body>
+</html>
