@@ -23,5 +23,5 @@ def upload_file(request):
             return response
     else:
         form = UploadFileForm()
-    return render(request, 'encryption_app/upload.html', {'form': form})
+    return render(request, 'Core_app/upload.html', {'form': form})
 
