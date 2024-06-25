@@ -11,9 +11,22 @@ def encrypt_file(file, password):
     file_content = file.read()
     ciphertext, tag = cipher.encrypt_and_digest(file_content)
 
-    return {
-        'salt': salt,
-        'nonce': nonce,
-        'ciphertext': ciphertext,
-        'tag': tag,
-    }
+    output = io.BytesIO()
+    output.write(salt)
+    output.write(nonce)
+    output.write(tag)
+    output.write(ciphertext)
+    output.seek(0)
+
+    return output
+
+def decrypt_file(encrypted_file, password):
+    encrypted_file.seek(0)
+    salt = encrypted_file.read(16)
+    nonce = encrypted_file.read(16)
+    tag = encrypted_file.read(16)
+    ciphertext = encrypted_file.read()
+
+    key = PBKDF2(password, salt, dkLen=32)
+    cipher = AES.new(key, AES.MODE_GCM, nonce=nonce)
+    return cipher.decrypt_and_verify(ciphertext, tag)
