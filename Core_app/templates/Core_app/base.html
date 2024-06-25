@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Ngome File Encryption{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'encryption_app/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ngome File Encryption</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'upload_file' %}">Encrypt</a></li>
+                    <li><a href="{% url 'decrypt_file' %}">Decrypt</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>
