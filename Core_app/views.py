@@ -24,7 +24,7 @@ def upload_file(request):
             return response
     else:
         form = UploadFileForm()
-    return render(request, 'encryption_app/upload.html', {'form': form})
+    return render(request, 'Core_app/upload.html', {'form': form})
 
 def decrypt_file_view(request):
     if request.method == 'POST':
@@ -49,4 +49,4 @@ def decrypt_file_view(request):
                 form.add_error(None, 'Decryption failed. Invalid password or corrupted file.')
     else:
         form = UploadFileForm()
-    return render(request, 'encryption_app/decrypt.html', {'form': form})
+    return render(request, 'Core_app/decrypt.html', {'form': form})
