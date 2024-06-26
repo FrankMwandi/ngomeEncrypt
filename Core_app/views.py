@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import UploadFileForm
+from .forms import UploadFileForm, DecryptFileForm
 from .utils import encrypt_file, decrypt_file
 from .models import EncryptionLog
 
@@ -28,9 +28,9 @@ def upload_file(request):
 
 def decrypt_file_view(request):
     if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)
+        form = DecryptFileForm(request.POST, request.FILES)
         if form.is_valid():
-            encrypted_file = request.FILES['file']
+            encrypted_file = request.FILES['encrypted_file']
             password = form.cleaned_data['password']
             try:
                 decrypted_content = decrypt_file(encrypted_file, password)
@@ -48,5 +48,5 @@ def decrypt_file_view(request):
             except Exception as e:
                 form.add_error(None, 'Decryption failed. Invalid password or corrupted file.')
     else:
-        form = UploadFileForm()
+        form = DecryptFileForm()
     return render(request, 'Core_app/decrypt.html', {'form': form})
