@@ -1,0 +1,30 @@
+{% extends "Core_app/base.html" %}
+
+{% block title %}NgomeEncrypt Home{% endblock %}
+
+{% block content %}
+    <h2>Welcome to NgomeEncrypt</h2>
+    <p>Encrypt and decrypt your files securely.</p>
+
+    <h3>Warning</h3>
+    <p class="warning">Choose your password wisely, it cannot be recovered!</p>
+
+    <h3>Documentation</h3>
+    <p>Using NgomeEncrypt is easy. Follow the steps below:</p>
+    <ul>
+        <li><strong>Encrypt a File:</strong></li>
+        <ol>
+            <li>Click on the "Encrypt" link in the navigation bar.</li>
+            <li>Choose the file you want to encrypt.</li>
+            <li>Enter a strong password. Remember this password as it cannot be recovered!</li>
+            <li>Click "Upload and Encrypt". Your encrypted file will be downloaded automatically.</li>
+        </ol>
+        <li><strong>Decrypt a File:</strong></li>
+        <ol>
+            <li>Click on the "Decrypt" link in the navigation bar.</li>
+            <li>Choose the encrypted file you want to decrypt.</li>
+            <li>Enter the password you used to encrypt the file.</li>
+            <li>Click "Upload and Decrypt". Your decrypted file will be downloaded automatically.</li>
+        </ol>
+    </ul>
+{% endblock %}

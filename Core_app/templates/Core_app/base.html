@@ -5,12 +5,12 @@
     <title>{% block title %}Ngome File Encryption{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'Core_app/css/style.css' %}">
-    <script src="{% static 'Core_app/js/scripts.js' %}"></script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'upload_file' %}">Encrypt</a></li>
                 <li><a href="{% url 'decrypt_file' %}">Decrypt</a></li>
             </ul>
@@ -21,9 +21,9 @@
         {% endblock %}
     </main>
     <footer>
-        <p>Ngome File Encryption &copy; 2023</p>
+        <p>NgomeEncrypt &copy; 2024</p>
         <p>Your privacy is important to us. No data or files are stored on our servers.</p>
     </footer>
-    <script src="{% static 'static/js/scripts.js' %}"></script>
+    <script src="{% static 'Core_app/js/scripts.js' %}"></script>
 </body>
 </html>
