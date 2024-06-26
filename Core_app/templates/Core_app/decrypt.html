@@ -3,9 +3,16 @@
 {% block title %}Decrypt File{% endblock %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
+    <h2>Decrypt Your File</h2>
+    <form method="post" enctype="multipart/form-data" onsubmit="showProgress()">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Upload and Decrypt</button>
     </form>
+    <div id="progress-container" style="display:none;">
+        <p>Decrypting your file...</p>
+        <div class="progress-bar">
+            <div class="progress-bar-fill"></div>
+        </div>
+    </div>
 {% endblock %}
