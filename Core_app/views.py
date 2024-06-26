@@ -4,6 +4,9 @@ from .forms import UploadFileForm, DecryptFileForm
 from .utils import encrypt_file, decrypt_file
 from .models import EncryptionLog
 
+def home(request):
+    return render(request, 'Core_app/home.html')
+
 def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
